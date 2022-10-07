@@ -13,7 +13,7 @@ class ErrorCatcher extends React.Component {
     this.setState({ hasError: true });
   }
 
-  render(props) {
+  render() {
     return this.state.hasError ? (
       <h1>Oooops. This is not good</h1>
     ) : (

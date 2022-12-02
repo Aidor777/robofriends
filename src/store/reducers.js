@@ -5,7 +5,7 @@ import {
   REQUEST_ROBOTS_SUCCESS,
 } from "./constants";
 
-const initialSateSearch = {
+export const initialSateSearch = {
   searchField: "",
 };
 
@@ -21,7 +21,7 @@ export const searchRobots = (state = initialSateSearch, action = {}) => {
 export const initialSateRobots = {
   isPending: false,
   robots: [],
-  error: ''
+  error: null
 };
 
 export const requestRobots = (state = initialSateRobots, action = {}) => {

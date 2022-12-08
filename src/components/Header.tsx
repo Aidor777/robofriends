@@ -1,7 +1,7 @@
 import React from "react";
 
 class Header extends React.Component {
-  shouldComponentUpdate() {
+  shouldComponentUpdate(): boolean {
     return false;
   }
 

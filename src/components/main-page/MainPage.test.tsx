@@ -10,6 +10,7 @@ test("MainPage should be loading on pending", () => {
     robots: [],
     isPending: true,
     onRequestRobots: jest.fn(),
+    error: undefined
   };
   render(<MainPage {...mockProps} />);
   expect(screen.getByRole("heading")).toHaveTextContent("Loading...");
@@ -33,6 +34,7 @@ test("MainPage should filter robots", () => {
     ],
     isPending: false,
     onRequestRobots: jest.fn(),
+    error: undefined
   };
   render(<MainPage {...mockProps} />);
   expect(screen.queryByTestId("loading-header")).not.toBeInTheDocument();

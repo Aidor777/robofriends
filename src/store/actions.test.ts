@@ -3,6 +3,7 @@ import * as actions from "./actions";
 
 import configureMockStore from "redux-mock-store";
 import thunkMiddleware from "redux-thunk";
+import { AnyAction } from "redux";
 
 const mockStore = configureMockStore([thunkMiddleware]);
 
@@ -15,7 +16,7 @@ it("should perform setSearchField", () => {
 
 it("should perform requestRobots", () => {
   const store = mockStore();
-  store.dispatch(actions.requestRobots());
+  store.dispatch(actions.requestRobots() as unknown as AnyAction);
   const sentActions = store.getActions();
 
   expect(sentActions[0]).toEqual({

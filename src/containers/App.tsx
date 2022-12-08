@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import MainPage from "../components/main-page/MainPage";
 import { requestRobots, setSearchField } from "../store/actions";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     searchField: state.searchRobots.searchField,
     robots: state.requestRobots.robots,
@@ -12,14 +12,14 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onSearchChange: (event: any) => dispatch(setSearchField(event.target.value)),
     onRequestRobots: () => dispatch(requestRobots())
   };
 };
 
-const App = (props) => {
+const App = (props: any) => {
   return <MainPage {...props} />
 };
 

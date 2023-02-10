@@ -1,0 +1,26 @@
+version: 2.1
+
+jobs:
+  say-hello:
+    docker:
+      - image: cimg/node:16.17.0
+    steps:
+      - checkout
+      - run:
+          name: "Say hello"
+          command: "echo Hello, World!"
+
+  double-trouble:
+    docker:
+      - image: cimg/node:16.17.0
+    steps:
+      - checkout
+      - run:
+          name: "Double trouble"
+          command: "echo Double trouble!"
+
+workflows:
+  double-workflow:
+    jobs:
+      - say-hello
+      - double-trouble

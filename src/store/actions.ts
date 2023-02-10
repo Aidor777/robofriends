@@ -12,12 +12,16 @@ export const setSearchField = (text: string): RobofriendsAction => ({
   payload: text,
 });
 
-export const requestRobots = () => (dispatch: (action: RobofriendsAction) => void): void => {
-  dispatch({ type: REQUEST_ROBOTS_PENDING });
-  fetch("https://jsonplaceholder.typicode.com/users")
-    .then((response: Response) => response.json())
-    .then((data: Array<Robot>) => dispatch({ type: REQUEST_ROBOTS_SUCCESS, payload: data }))
-    .catch((error: any) =>
-      dispatch({ type: REQUEST_ROBOTS_FAILURE, payload: error })
-    );
-};
+export const requestRobots =
+  () =>
+  (dispatch: (action: RobofriendsAction) => void): void => {
+    dispatch({ type: REQUEST_ROBOTS_PENDING });
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response: Response) => response.json())
+      .then((data: Array<Robot>) =>
+        dispatch({ type: REQUEST_ROBOTS_SUCCESS, payload: data })
+      )
+      .catch((error: any) =>
+        dispatch({ type: REQUEST_ROBOTS_FAILURE, payload: error })
+      );
+  };

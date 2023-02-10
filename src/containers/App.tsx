@@ -10,19 +10,22 @@ const mapStateToProps = (state: RobofriendsState): AppStateProps => {
     searchField: state.searchRobots.searchField,
     robots: state.requestRobots.robots,
     isPending: state.requestRobots.isPending,
-    error: state.requestRobots.error
+    error: state.requestRobots.error,
   };
 };
 
-const mapDispatchToProps = (dispatch: (input: any) => any): AppDispatchProps => {
+const mapDispatchToProps = (
+  dispatch: (input: any) => any
+): AppDispatchProps => {
   return {
-    onSearchChange: (event: any) => dispatch(setSearchField(event.target.value)),
-    onRequestRobots: () => dispatch(requestRobots())
+    onSearchChange: (event: any) =>
+      dispatch(setSearchField(event.target.value)),
+    onRequestRobots: () => dispatch(requestRobots()),
   };
 };
 
 const App = (props: AppProps) => {
-  return <MainPage {...props} />
+  return <MainPage {...props} />;
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

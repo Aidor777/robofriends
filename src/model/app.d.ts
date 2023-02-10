@@ -12,4 +12,4 @@ export interface AppDispatchProps {
   onRequestRobots: () => any;
 }
 
-export type AppProps = AppStateProps & AppDispatchProps
+export type AppProps = AppStateProps & AppDispatchProps;

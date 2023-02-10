@@ -1,26 +1,43 @@
 version: 2.1
 
 jobs:
-  say-hello:
+  build:
     docker:
       - image: cimg/node:16.17.0
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: NPM install
+          command: npm install
+      - run:
+          name: NPM build
+          command: npm run build
 
-  double-trouble:
+  test:
     docker:
       - image: cimg/node:16.17.0
     steps:
       - checkout
       - run:
-          name: "Double trouble"
-          command: "echo Double trouble!"
+          name: NPM install
+          command: npm install
+      - run:
+          name: NPM test
+          command: npm test
+
+  final:
+    docker:
+      - image: cimg/node:16.17.0
+    steps:
+      - checkout
+      - run: echo "All is done!"
 
 workflows:
-  double-workflow:
+  pipeline:
     jobs:
-      - say-hello
-      - double-trouble
+      - build
+      - test
+      - final:
+          requires: 
+            - build
+            - test

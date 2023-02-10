@@ -33,7 +33,7 @@ jobs:
       - run: echo "All is done!"
 
 workflows:
-  double-workflow:
+  pipeline:
     jobs:
       - build
       - test

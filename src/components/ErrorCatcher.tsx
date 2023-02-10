@@ -1,7 +1,10 @@
 import React, { PropsWithChildren } from "react";
 import { ErrorCatcherState } from "../model/error-catcher";
 
-class ErrorCatcher extends React.Component<PropsWithChildren, ErrorCatcherState> {
+class ErrorCatcher extends React.Component<
+  PropsWithChildren,
+  ErrorCatcherState
+> {
   constructor(props: PropsWithChildren) {
     super(props);
     this.state = {
